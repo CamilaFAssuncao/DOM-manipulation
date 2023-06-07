@@ -41,17 +41,30 @@ for (let i=0; i<para.length; i++) {
 
 // Give each of the paragraph a random text color (different for each one) UNLESS it has a class then leave it as it is.
 
+const para2 = document.querySelectorAll("p");
 
+const randomColor = () => {
+  let x = Math.floor(Math.random() * 256);
+  let y = Math.floor(Math.random() * 256);
+  let z = Math.floor(Math.random() * 256);
+  let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  return bgColor;
+};
 
-
-const para2 = document.querySelectorAll ("p")
-
-for (let i=0; i<para2.length; i++) {
-    para2[i].style.background = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    if (para2[1].contains.className) {
-        para2[i].style.background = "none"
-    }
+for (let i = 0; i < para2.length; i++) {
+  para2[i].style.backgroundColor = randomColor();
 }
+
+// OR 
+
+// const para2 = document.querySelectorAll ("p")
+
+// for (let i=0; i<para2.length; i++) {
+//     para2[i].style.background = "#" + Math.floor(Math.random() * 16777215).toString(16);
+//     if (para2[1].contains.className) {
+//         para2[i].style.background = "none"
+//     }
+// }
 
 
 
