@@ -1,3 +1,5 @@
+//Modify the script.js to create a new <section> with a random background-color for each learner in your group. This section should contain a paragraph with the name of the learner. Those sections should be appended in the <article>
+
 let para = document.createElement ("p")
 let section = document.createElement ("section")
 let article = document.createElement ("article")
@@ -16,33 +18,57 @@ para.appendChild(textNode);
 
 const para2 = document.querySelectorAll("p");
 
+
+const brightness = (r,g,b) => {
+    let brightnessValue = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+    return brightnessValue;
+};
+
 const randomColor = () => {
-      let x = Math.floor(Math.random() * 256);
-      let y = Math.floor(Math.random() * 256);
-      let z = Math.floor(Math.random() * 256);
-      let bgColor = "rgb(" + x + "," + y + "," + z + ")";
-      return bgColor;
+      let r = Math.floor(Math.random() * 256);
+      let g = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+      brightness(r,g,b)
+      let bgColor = "rgb(" + r + "," + g + "," + b + ")";
+      return {color: bgColor, brightness: brightness(r,g,b)};
     };
     
     for (let i = 0; i < para2.length; i++) {
-      para2[i].style.backgroundColor = randomColor();
+        let generatedColor = randomColor()
+        para2[i].style.backgroundColor = generatedColor.color;
+
+        if (generatedColor.brightness < 125) {
+            para2[i].style.color = "white"
+        }
+        else {
+            para2[i].style.color = "black"
+        }
     }
 
-
-
+//If the background is dark the text should be white, if the background is light the text should be black
 
     
-//     const randomColor = () => {
-//         let color = Math.floor(Math.random()*16777215).toString(16)
     
-//         /* sometimes the returned value does not have 
-//          * the 6 digits needed, so we do it again until
-//          * it does 
-//          */
     
-//         while (color.length<6) {
-//           color = Math.floor(Math.random()*16777215).toString(16)
-//         }
+    
+    
+   
+    // const rgbToLightness = (r,g,b) => 
+    // 1/2 * (Math.max(r,g,b) + Math.min(r,g,b));
+    // return brightness;
+
+    // if (brightness > 180){
+    //     return color //white
+
+    //     // else {
+    //     //     return color=black
+    //     // }
+
+    // }
+
+
+//if bgColor brightness > 180
+
     
 //         let red = parseInt(color.substring(0,2),16)
 //         let green = parseInt(color.substring(2,4),16)
