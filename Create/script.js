@@ -16,34 +16,52 @@ document.body.appendChild(article)
 const textNode = document.createTextNode("Camila");
 para.appendChild(textNode);
 
+// Select all the <p> elements on the webpage and store them in the variable "para2"
 const para2 = document.querySelectorAll("p");
 
-
-const brightness = (r,g,b) => {
-    let brightnessValue = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-    return brightnessValue;
+// Define a function called "brightness" that takes in three parameters: r, g, and b
+const brightness = (r, g, b) => {
+  // Calculate the brightness value based on the formula (r * 299 + g * 587 + b * 114) / 1000
+  let brightnessValue = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+  // Return the calculated brightness value
+  return brightnessValue;
 };
 
+// Define a function called "randomColor"
 const randomColor = () => {
-      let r = Math.floor(Math.random() * 256);
-      let g = Math.floor(Math.random() * 256);
-      let b = Math.floor(Math.random() * 256);
-      brightness(r,g,b)
-      let bgColor = "rgb(" + r + "," + g + "," + b + ")";
-      return {color: bgColor, brightness: brightness(r,g,b)};
-    };
-    
-    for (let i = 0; i < para2.length; i++) {
-        let generatedColor = randomColor()
-        para2[i].style.backgroundColor = generatedColor.color;
+  // Generate random values for r, g, and b between 0 and 255
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
 
-        if (generatedColor.brightness < 125) {
-            para2[i].style.color = "white"
-        }
-        else {
-            para2[i].style.color = "black"
-        }
-    }
+  // Call the "brightness" function and pass in the random r, g, and b values
+  brightness(r, g, b);
+
+  // Create a string representation of the generated color using the random r, g, and b values
+  let bgColor = "rgb(" + r + "," + g + "," + b + ")";
+  
+  // Return an object containing the generated color and its brightness value
+  return { color: bgColor, brightness: brightness(r, g, b) };
+};
+
+// Loop through each element in the "para2" array
+for (let i = 0; i < para2.length; i++) {
+  // Generate a random color using the "randomColor" function
+  let generatedColor = randomColor();
+
+  // Set the background color of the current element to the generated color
+  para2[i].style.backgroundColor = generatedColor.color;
+
+  // Check if the brightness value of the generated color is less than 125
+  if (generatedColor.brightness < 125) {
+    // If the brightness is low, set the text color of the current element to white
+    para2[i].style.color = "white";
+  } else {
+    // If the brightness is high, set the text color of the current element to black
+    para2[i].style.color = "black";
+  }
+}
+
 
 //If the background is dark the text should be white, if the background is light the text should be black
 
