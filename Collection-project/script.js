@@ -127,20 +127,20 @@ const displayCollection = (
   const cardCollection = document.createElement("div");
   cardCollection.classList.add("mainContainer");    
   
-  const header = document.createElement("header");
+//   const header = document.createElement("header");
   
-  const head = document.createElement("div");
-  head.classList.add("head");
+//   const head = document.createElement("div");
+//   head.classList.add("head");
 
-  const mainTitle = document.createElement("h1");
-  mainTitle.classList.add("mainTitle");
+//   const mainTitle = document.createElement("h1");
+//   mainTitle.classList.add("mainTitle");
 
-  const description = document.createElement("p");
-  description.classList.add("description");
+//   const description = document.createElement("p");
+//   description.classList.add("description");
 
-  const icone = document.createElement("img");
-  icone.classList.add("icone");
-  icone.setAttribute("src", "movie.jpeg");
+//   const icone = document.createElement("img");
+//   icone.classList.add("icone");
+//   icone.setAttribute("src", "movie.jpeg");
 
   const container1 = document.createElement("div");
   container1.classList.add("container1");
@@ -163,7 +163,7 @@ const displayCollection = (
 
   const genre = document.createElement("nav");
   genre.classList.add("genre");
-  genre.innerHTML = genreValue
+  genre.innerHTML = genreValue;
 
 
   const cast = document.createElement("p");
@@ -183,6 +183,11 @@ const displayCollection = (
 // Append
 
 moviesContainer.appendChild(cardCollection);
+// cardCollection.appendChild(header);
+// header.appendChild(head);
+// head.appendChild(mainTitle);
+// head.appendChild(description);
+// header.appendChild(icone);
 
 cardCollection.appendChild(container1);
 container1.appendChild(movieName);
@@ -197,17 +202,16 @@ container1.appendChild(trailer);
 };
 
 const generateMovieCollection = () => {
-    collection.forEach((film) = function () {
+    collection.forEach((film) => {
             displayCollection(
-                film.nameValue,
-                film.nameValue,
-                film.directorValue,
-                film.releaseYearValue,
-                film.pictureValue,
-                film.genreValue,
-                film.castValue,
-                film.overviewValue,
-                film.trailerValue
+                film.name,
+                film.director,
+                film.releaseYear,
+                film.picture,
+                film.genre,
+                film.cast,
+                film.overview,
+                film.trailer
             );
         });
 };
