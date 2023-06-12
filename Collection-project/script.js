@@ -108,4 +108,85 @@ const collection = [
     overview: ['Netflix-original drama chronicles the life of Queen Elizabeth II from the 1940s to modern times. The series begins with an inside look at the early reign of the queen, who ascended the throne at age 25 after the death of her father, King George VI. As the decades pass, personal intrigues, romances, and political rivalries are revealed that played a big role in events that shaped the later years of the 20th century.'],
     trailer : ['https://youtu.be/JWtnJjn6ng0"']
 }
-]
+];
+
+const moviesContainer = document.querySelector(".movies-container");
+
+const displayCollection = (
+    nameValue, 
+    directorValue, 
+    releaseYearValue, 
+    pictureValue, 
+    genreValue, 
+    castValue, 
+    overviewValue, 
+    trailerValue
+    ) => {
+
+        
+
+  const cardCollection = document.createElement("div");
+  cardCollection.classList.add("card-collection");    
+  
+//   const header = document.createElement("header");
+  
+//   const head = document.createElement("div");
+//   head.classList.add("head");
+
+//   const mainTitle = document.createElement("h1");
+//   mainTitle.classList.add("mainTitle");
+
+//   const description = document.createElement("p");
+//   description.classList.add("description");
+
+//   const icone = document.createElement("img");
+//   icone.classList.add("icone");
+//   icone.setAttribute("src", "movie.jpeg");
+
+  const container1 = document.createElement("div");
+  container1.classList.add("container1");
+
+  const movieName = document.createElement("h2");
+  movieName.classList.add("movieName");
+  movieName.innerHTML = nameValue;
+
+  const director =document.createElement("h5");
+  director.classList.add("director");
+  director.innerHTML = directorValue;
+
+  const realease = document.createElement("h6");
+  realease.classList.add("releaseyear");
+  realease.innerHTML = releaseYearValue;
+
+  const movieImg = document.createElement("img");
+  movieImg.classList.add("movieImg");
+  movieImg.setAttribute("src", pictureValue);
+
+  const genre = document.createElement("nav");
+  genre.classList.add("genre");
+  genre.innerHTML = genreValue
+
+
+  const cast = document.createElement("p");
+  cast.classList.add("cast");
+  cast.innerHTML = castValue;
+
+
+  const overview = document.createElement("p");
+  overview.classList.add("movieOverview");
+  overview.innerHTML = overviewValue;
+
+  const trailer = document.createElement("a");
+  trailer.classList.add("trailer");
+  trailer.setAttribute("href", trailerValue);
+
+
+// Append
+
+
+
+
+
+
+
+}
