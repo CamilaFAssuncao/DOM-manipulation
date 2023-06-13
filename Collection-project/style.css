@@ -11,6 +11,7 @@ padding: 0;
 
 .card-collection {
     display: flex;
+    margin: 1%;
 }
 
 .mainContainer {
