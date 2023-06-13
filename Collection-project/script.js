@@ -6,7 +6,7 @@ const collection = [
     picture: 'birdsofprey.jpeg',
     genre: ['Action', 'Comedy', 'Crime'],
     cast: ['Margot Robbie', 'Rosie Perez', 'Mary Elizabeth Winstead'],
-    overview: ['After splitting with the Joker, Harley Quinn joins superheroines Black Canary, Huntress, and Renee Montoya to save a young girl from an evil crime lord.'],
+    overview: ['It is open season on Harley Quinn when her explosive breakup with the Joker puts a big fat target on her back. Unprotected and on the run, Quinn faces the wrath of narcissistic crime boss Black Mask, his right-hand man, Victor Zsasz, and every other thug in the city. But things soon even out for Harley when she becomes unexpected allies with three deadly women -- Huntress, Black Canary and Renee Montoya.After splitting with the Joker, Harley Quinn joins superheroines Black Canary, Huntress, and Renee Montoya to save a young girl from an evil crime lord.'],
     trailer : ['https://youtu.be/kGM4uYZzfu0']
 },
 
@@ -28,7 +28,7 @@ const collection = [
     picture: 'ladybird.jpeg',
     genre: ['Comedy', 'Drama'],
     cast: ['Saoirse Ronan', 'Laurie Metcalf', 'Timothée Chalamet'],
-    overview: ['A teenager (Saoirse Ronan) navigates a loving but turbulent relationship with her strong-willed mother (Laurie Metcalf) over the course of an eventful and poignant senior year of high school.'],
+    overview: ['"Lady Bird" is a coming-of-age film set in Sacramento in 2002, focusing on the turbulent relationship between a strong-willed teenager named Christine "Lady Bird" McPherson and her mother, Marion. Lady Bird dreams of leaving her hometown and attending a prestigious college on the east coast, while Marion worries about their financial struggles. The film follows Lady Birds final year of high school as she navigates friendships, romantic relationships, and personal growth, ultimately discovering the importance of family, self-acceptance, and the meaning of home.'],
     trailer : ['https://youtu.be/cNi_HC839Wo']
 },
 
@@ -67,7 +67,7 @@ const collection = [
 
 {
     name: 'Fleabag',
-    director: 'Phoebe Waller-Bridge',
+    director: ['Phoebe Waller-Bridge'],
     releaseYear: 2016,
     picture: 'fleabag.jpeg',
     genre: ['Comedy', 'Drama'],
@@ -78,7 +78,7 @@ const collection = [
 
 {
     name: 'The Handmaids Tale',
-    director: ['Bruce Miller', ''],
+    director: ['Bruce Miller', 'Elisabeth Moss'],
     releaseYear: 2017,
     picture: 'handmaids.jpeg',
     genre: ['Drama', 'Sci-Fi', 'Thriller'],
@@ -112,6 +112,9 @@ const collection = [
 
 const moviesContainer = document.querySelector(".card-collection");
 
+const cardCollection = document.createElement("div");
+  cardCollection.classList.add("mainContainer");   
+
 const displayCollection = (
     nameValue, 
     directorValue, 
@@ -122,10 +125,7 @@ const displayCollection = (
     overviewValue, 
     trailerValue
     ) => {
-
-    
-  const cardCollection = document.createElement("div");
-  cardCollection.classList.add("mainContainer");    
+ 
   
 //   const header = document.createElement("header");
   
@@ -153,9 +153,12 @@ const displayCollection = (
   director.classList.add("director");
   director.innerHTML = directorValue;
 
-  const realease = document.createElement("h6");
+  const realease = document.createElement("h5");
   realease.classList.add("releaseyear");
   realease.innerHTML = releaseYearValue;
+
+//   const year_director = document.createElement("div")
+//   year_director.classList.add("year")
 
   const movieImg = document.createElement("img");
   movieImg.classList.add("movieImg");
