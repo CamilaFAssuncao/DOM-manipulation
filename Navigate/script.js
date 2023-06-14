@@ -11,28 +11,36 @@
 
 // Move the <h2> of the third section in the second one and vice-versa
 
-// const sec = document.querySelectorAll("h2");
 
-// const selected = Array.from(document.querySelectorAll("h2"));
+//const h2Elements = Array.from(document.querySelectorAll("h2"));
 
-// function switchPosition (selected, from, to) {
-//     selected.splice(to, 1, selected.splice(from,2)[0])
-//     return selected
+// function switchPosition(array, swap1, swap2) {
+//   const temp = array[swap1];
+//   //console.log(temp);
+//   array.splice(swap1, 1, array[swap2]);
+//   //console.log(array);
+//   array.splice(swap2, 1, temp);
+//   //console.log(array);
+//   return array;
 // }
 
-// switchPosition (selected, 2, 1);
+// //const modifiedArray = switchPosition(Array.from(document.querySelectorAll("h2")), 1, 2);
+// console.log(switchPosition(Array.from(document.querySelectorAll("h2")), 1, 2));
+
 
 // console.log(selected);
 
-const mudarPosicao = (ordem, from, to) => {
-    titulos.splice(to, 0, titulos.splice(from,1)[0]);
-    return titulos
+// const mudarPosicao = (ordem, from, to) => {
+//     titulos.splice(to, 0, titulos.splice(from,1)[0]);
+//     return titulos
 
-};
+// };
+// 
 
-let titulos = Array.from(document.querySelectorAll("h2"));
+// // let titulos = Array.from(document.querySelectorAll("h2"));
 
-console.log(titulos);
+
+// console.log(titulos);
 
 
 // function switchPosition(titulos, from, to) {
@@ -54,4 +62,22 @@ console.log(titulos);
 // sec.insertBefore(third,second);
 
 
+// Retrieve references to the elements
+const thirdSectionHeading = document.querySelector('main > section:nth-child(2) > h2');
+const secondSectionHeading = document.querySelector('main > section:nth-child(3) > div > h2');
+
+// Remove the elements from their current positions
+thirdSectionHeading.remove();
+secondSectionHeading.remove();
+
+// Insert the elements into their new positions
+document.querySelector('main > section:nth-child(2)').appendChild(secondSectionHeading);
+document.querySelector('main > section:nth-child(3) > div').appendChild(thirdSectionHeading);
+
+
+
+
 // Delete the last section from the DOM, we don't need it anyways
+
+const lastSection = document.querySelector("main > section:nth-child(3)");
+lastSection.remove();
